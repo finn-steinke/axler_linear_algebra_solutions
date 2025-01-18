@@ -1,0 +1,298 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+
+       \textbf{Worked Solutions for \textit{Linear Algebra Done Right}}
+
+       \vspace{0.5cm}
+        Dr. Sheldon Axler, Fourth Edition
+            
+       \vspace{0.8cm}
+
+       \text{Answers provided by Finn Steinke}
+
+       \vfill
+            
+       
+            
+       \vspace{0.8cm}
+     
+    
+            
+       
+            
+   \end{center}
+\end{titlepage}
+
+
+\section*{Chapter 1}
+
+\subsection*{Exercises 1A}
+
+\textbf{1} \hspace{3 mm} Show that $\alpha + \beta = \beta + \alpha$ for all $\alpha, \beta \in \mathbb{C}$. \color{red}
+
+\begin{proof}
+    $\forall \alpha, \beta \in \mathbb{C}$, suppose $\alpha \stackrel{\text{def}}{=} a + bi, \  \beta \stackrel{\text{def}}{=} c + di$, where $a, b, c, d \in \mathbb{R}$.\\
+    \indent Then
+    \begin{align*}
+        \alpha + \beta &= (a + bi) + (c + di) &&\text{(by definition)}\\
+            &= (a + c) + (b + d)i &&\text{(by definition of addition over $\mathbb{C}$)}\\
+            &= (c + a) + (d + b)i &&\text{(holds for commutativity over $\mathbb{R}$)}\\
+            &= (c + di) + (a + bi) &&\text{(by definition of addition over $\mathbb{C}$)}\\
+            &= \beta + \alpha &&\text{(by definition)}
+    \end{align*}
+    $\implies$Thus $\alpha + \beta = \beta + \alpha \hspace{2 mm} \forall \alpha, \beta \in \mathbb{C}$. 
+    
+\end{proof}
+\color{black}
+
+\noindent \textbf{2} \hspace{3 mm} Show that $(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)$ for all $\alpha, \beta, \lambda \in \mathbb{C}$. \color{red}
+
+\begin{proof}
+    $\forall \alpha, \beta, \lambda \in \mathbb{C}$, suppose $\alpha \stackrel{\text{def}}{=} a + bi, \  \beta \stackrel{\text{def}}{=} c + di, \ \lambda \stackrel{\text{def}}{=} j + ki$, where $a, b, c, d, j, k \in \mathbb{R}$.\\
+    \indent Then
+    \begin{align*}
+        (\alpha + \beta) + \lambda &= \Big((a + bi) + (c + di)\Big) + (j + ki) &&\text{(by definition)}\\
+        &= \Big((a + c) + (b + d)i\Big) + (j + ki) &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &= \Big((a + c) + j\Big) + \Big((b + d) + k\Big)i &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &= \Big(a + (c + j)\Big) + \Big(b + (d + k)\Big)i &&\text{(holds for associativity over $\mathbb{R}$)}\\
+        &= (a + bi) + \Big((c + j) + (d + k)i\Big) &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &= (a + bi) + \Big((c + di) + (j + ki)\Big) &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &= \alpha + (\beta + \lambda) &&\text{(by definition)}
+    \end{align*}
+    $\implies$Thus $(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda) \hspace{2 mm} \forall \alpha, \beta, \lambda \in \mathbb{C}$.
+\end{proof}
+\color{black}
+\pagebreak
+
+\noindent \textbf{3} \hspace{3 mm} Show that $(\alpha\beta)\lambda = \alpha(\beta\lambda)$ for all $\alpha, \beta, \lambda \in \mathbb{C}$. \color{red}
+
+\begin{proof}
+    $\forall \alpha, \beta, \lambda \in \mathbb{C}$, suppose $\alpha \stackrel{\text{def}}{=} a + bi, \  \beta \stackrel{\text{def}}{=} c + di, \ \lambda \stackrel{\text{def}}{=} j + ki$, where $a, b, c, d, j, k \in \mathbb{R}$.\\
+    \indent Then
+    \begin{align*}
+        (\alpha\beta)\lambda &= \Big((a + bi)(c + di)\Big)(j + ki) &&\text{(by definition)}\\
+        &= \Big((ac - bd) + (ad + bc)i\Big)(j + ki) &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= \Big((ac - bd)j - (ad + bc)k\Big) + \Big((ac - bd)k + (ad + bc)j\Big)i &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= (acj - bdj - adk - bck) + (ack - bdk + adj + bcj)i &&\text{(holds for distributivity over $\mathbb{R}$)}\\
+        &= (acj - adk - bdj - bck) + (ack + adj - bdk + bcj)i &&\text{(holds for commutativity over $\mathbb{R}$)}\\
+        &= \Big(a(cj - dk) - b(dj + ck)\Big) + \Big(a(ck + dj) + b(-dk + cj)\Big)i &&\text{(holds for distributivity over $\mathbb{R}$)}\\
+        &= (a + bi)\Big((cj - dk) + (ck + dj)i\Big) &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= (a + bi)\Big((c + di)(j + ki)\Big) &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= \alpha(\beta\lambda) &&\text{(by definition)}\\
+    \end{align*}
+    $\implies$Thus $(\alpha\beta)\lambda = \alpha(\beta\lambda) \hspace{2 mm} \forall \alpha, \beta, \lambda \in \mathbb{C}$.
+
+\end{proof}
+\color{black}
+
+\noindent \textbf{4} \hspace{3 mm} Show that $\lambda(\alpha + \beta) = \lambda\alpha + \lambda\beta$ for all $\lambda, \alpha, \beta \in \mathbb{C}$. \color{red}
+
+\begin{proof}
+    $\forall \lambda, \alpha, \beta \in \mathbb{C}$, suppose $\lambda \stackrel{\text{def}}{=} j + ki, \ \alpha \stackrel{\text{def}}{=} a + bi, \ \beta \stackrel{\text{def}}{=} c + di$, where $j, k, a, b, c, d \in \mathbb{R}$.\\
+    \indent Then
+    \begin{align*}
+        \lambda(\alpha + \beta) &= (j + ki)\Big((a + bi) + (c + di)\Big) &&\text{(by definition)}\\
+        &= (j + ki)\Big((a+c) + (b + d)i\Big) &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &= \Big(j(a + c) - k(b + d)\Big) + \Big(j(b + d) + k(a + c)\Big)i &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= (ja + jc - kb - kd) + (jb + jd + ka + kc)i &&\text{(holds for distributivity over $\mathbb{R}$)}\\
+        &= (ja - kb + jc - kd) + (jb + ka + jd + kc)i &&\text{(holds for commutativity over $\mathbb{R}$)}\\
+        &= (ja - kb) + (jc - kd) + (jb + ka)i + (jd + kc)i &&\text{(holds for distributivity over $\mathbb{R}$)}\\
+        &= \Big((ja - kb) + (jb + ka)i\Big) + \Big((jc - kd) + (jd + kc)i\Big) &&\text{(holds for commutativity over $\mathbb{R}$)}\\
+        &= (j + ki)(a + bi) + (j + ki)(c + di) &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= \lambda\alpha + \lambda\beta &&\text{(by definition)}\\
+    \end{align*}
+    $\implies$Thus $\lambda(\alpha + \beta) = \lambda\alpha + \lambda\beta \hspace{2 mm} \forall \lambda, \alpha, \beta \in \mathbb{C}$.
+\end{proof}
+\color{black}
+
+\pagebreak
+
+\noindent \textbf{5} \hspace{3 mm} Show that for every $\alpha \in \mathbb{C}$, there exists a unique $\beta \in \mathbb{C}$ such that $\alpha + \beta = 0$. \color{red}
+
+\begin{proof}
+    $\forall \alpha \in \mathbb{C}$, we assume $\exists! \beta \in \mathbb{C}$ such that $\alpha + \beta = 0$. To this end, suppose $\alpha \stackrel{\text{def}}{=} a + bi, \beta \stackrel{\text{def}}{=} c + di$, \\
+    \indent where $a,b,c,d \in \mathbb{R}$. It follows that
+    \begin{align*}
+        &\hspace{9.75 mm} \alpha + \beta = 0 &&\text{(by assumption)}\\
+        &\implies (a + bi) + (c + di) = 0 &&\text{(by definition)}\\
+        &\implies (a + c) + (b + d)i = 0 &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &\implies (a + (-a)) + (b + (-b))i = 0 &&\text{(holds for definition of additive inverse over $\mathbb{R}$)}\\
+        &\implies (a + bi) + \big((-a) + (-b)i\big) = 0 &&\text{(by definition of addition over $\mathbb{C}$)}\\
+        &\implies (a + bi) + (-1)(a + bi) = 0 &&\text{(holds for distributivity over $\mathbb{R}$)}\\
+        &\implies \alpha + (-1)(\alpha) = 0 &&\text{(by definition)}\\
+        &\implies \alpha + -\alpha = 0 &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+    \end{align*}
+    $\implies \forall \alpha \in \mathbb{C}, \ \exists! \beta = -\alpha \in \mathbb{C}$ such that $\alpha + (-\alpha) = 0$.
+
+\end{proof}
+\color{black}
+
+\noindent \textbf{6} \hspace{3 mm} Show that for every $\alpha \in \mathbb{C}$ with $\alpha \neq 0$, there exists a unique $\beta \in \mathbb{C}$ such that $\alpha\beta = 1$. \color{red}
+
+\begin{proof}
+    $\forall \alpha \in \mathbb{C}$, we assume $\exists! \beta \in \mathbb{C}$ such that $\alpha\beta = 1$. To this end, suppose $\alpha \stackrel{\text{def}}{=} a + bi, \beta \stackrel{\text{def}}{=} c + di$, \\
+    \indent where $a, b, c, d \in \mathbb{R}$ and $\alpha \neq 0$. If follows that
+    \begin{align*}
+        &\hspace{9.75 mm} \alpha\beta = 1 &&\text{(by assumption)}\\
+        &\implies (a + bi)(c + di) =1 &&\text{(by definition)}\\
+        &\implies (ac - bd) + (ad + bc)i = 1 &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+    \end{align*}
+
+    \begin{mdframed}[
+    linecolor=red,        
+    fontcolor=red         
+]
+        \indent For the above equality to hold, $\Re(\alpha\beta) = 1$, and $\Im(\alpha\beta) = 0$, giving us two equations\\
+        \[ac - bd = 1 \tag{$\ast$}\]
+        \[ad + bc = 0 \tag{$\ast\ast$}\]
+        \indent Rearranging ($\ast$) for $c$ gives us
+        \[c = \frac{1 + bd}{a}\]
+        \indent Rearranging ($\ast\ast$) for $d$ gives us
+        \[d = -\frac{bc}{a}\]
+        \indent Substituting ($\ast$) into ($\ast\ast$) gives us
+        \begin{align*}
+            &\hspace{9.75 mm} d = -\frac{b\big(\frac{1 + bd}{a}\big)}{a} \\
+            &\implies d = -\frac{b(1 + bd)}{a^{2}} \\
+            &\implies da^{2} = - b(1 + bd) \\
+            &\implies da^{2} = - b - b^{2}d \\
+            &\implies da^{2} + b^{2}d = - b \\
+            &\implies d(a^{2} + b^{2}) = - b \\
+            &\implies d = -\frac{b}{a^{2} + b^{2}} \tag{$\ast\ast\ast$}
+        \end{align*}
+        \indent Substituting ($\ast\ast\ast$) into ($\ast$) gives us
+        \begin{align*}
+            c &= \frac{1 + b\big(\frac{-b}{a^{2} + b^{2}}\big)}{a} \\
+            &= \frac{1 - \big(\frac{b^{2}}{a^{2} + b^{2}}\big)}{a} \\
+            &= \frac{\big(\frac{a^{2} + b^{2}}{a^{2} + b^{2}}\big) - \big(\frac{b^{2}}{a^{2} + b^{2}}\big)}{a} \\
+            &= \frac{\big(\frac{a^{2}}{a^{2} + b^{2}}\big)}{a} = \frac{a^{2}}{a(a^{2} + b^{2})} \\
+            &= \frac{a}{a^{2} + b^{2}}
+        \end{align*}
+    \end{mdframed}
+    
+    \indent Now, using our new definitions of $c$ and $d$
+    \begin{align*}
+        &\hspace{9.75 mm} 1 = (ac - bd) + (ad + bc)i \\
+        &\implies 1 = \Big(a\Big(\frac{a}{a^{2} + b^{2}}\Big) - b\Big(\frac{-b}{a^{2} + b^{2}}\Big)\Big) + \Big(a\Big(\frac{-b}{a^{2} + b^{2}}\Big) + b\Big(\frac{a}{a^{2} + b^{2}}\Big)\Big)i &&\text{(by definition)}\\
+        &\implies 1 = \Big(\Big(\frac{a^{2}}{a^{2} + b^{2}}\Big) + \Big(\frac{b^{2}}{a^{2} + b^{2}}\Big)\Big) + \Big(\Big(\frac{-ab}{a^{2} + b^{2}}\Big) + \Big(\frac{ab}{a^{2} + b^{2}}\Big)\Big)i &&\text{(holds for multiplication over $\mathbb{R}$)}\\
+        &\implies 1 = \Big(\frac{a^{2} + b^{2}}{a^{2} + b^{2}}\Big) = 1 &&\text{(holds for addition over $\mathbb{R}$)}\\
+    \end{align*}
+    \indent We can redefine $\beta$ in terms of $\alpha$
+    \begin{align*}
+        \beta &= \frac{a - bi}{a^{2} + b^{2}}\\
+        \beta &\stackrel{\text{def}}{=} \frac{1}{\alpha}
+    \end{align*}
+    $\implies \forall \alpha \in \mathbb{C}, \ \exists! \beta = \dfrac{1}{\alpha} \in \mathbb{C}$ such that $\alpha\Big(\dfrac{1}{\alpha}\Big) = 1$.
+    
+\end{proof}
+\color{black}
+
+\pagebreak
+
+\noindent \textbf{7} \hspace{3 mm} Show that $\dfrac{-1 + \sqrt{3}i}{2}$ is a cube root of 1 (meaning that its cube equals 1). \color{red}
+
+\begin{proof}
+    \begin{align*}
+        \Big(\dfrac{-1 + \sqrt{3}i}{2}\Big)^{3} &= \Big(\dfrac{-1 + \sqrt{3}i}{2}\Big)\Big(\dfrac{-1 + \sqrt{3}i}{2}\Big)\Big(\dfrac{-1 + \sqrt{3}i}{2}\Big) &&\text{(by definition)}\\
+        &= \Big(\Big(\frac{1}{4} - \frac{3}{4}\Big) + \Big(-\frac{\sqrt{3}}{4} - \frac{\sqrt{3}}{4}\Big)i\Big)\Big(\dfrac{-1 + \sqrt{3}i}{2}\Big) &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= \Big(\frac{-1 - \sqrt{3}i}{2}\Big)\Big(\frac{-1 + \sqrt{3}i}{2}\Big) &&\text{(holds for addition over $\mathbb{R}$)}\\
+        &= \Big(\frac{1}{4} + \frac{3}{4}\Big) + \Big(-\frac{\sqrt{3}}{4} + \frac{\sqrt{3}}{4}\Big)i &&\text{(by definition of multiplication over $\mathbb{C}$)}\\
+        &= 1 &&\text{(holds for addition over $\mathbb{R}$)}\\
+    \end{align*}
+    $\implies \dfrac{-1 + \sqrt{3}i}{2} = \sqrt[3]{1}$ .
+    
+\end{proof}
+\color{black}
+
+\noindent \textbf{8} \hspace{3 mm} Find two distinct square roots of $i$. \color{red}\\
+
+\indent Let $\alpha \in \mathbb{C}$, where $\alpha \stackrel{\text{def}}{=} a + bi$, with $a, b \in \mathbb{R}$.
+\begin{align*}
+    &\hspace{9.75 mm}i = \alpha^{2} \\
+    &\implies i = (a + bi)^{2} \\
+    &\implies i = a^{2} + 2abi - b^{2} \\
+    &\implies i = \Im(a^{2} + 2abi - b^{2}) \\
+    &\implies i = 2abi \\
+    &\implies 1 = 2ab \\
+    &\implies \frac{1}{2} = ab \\
+\end{align*}
+
+\begin{center}
+
+    \fcolorbox{red}{white}{
+        \parbox{0.55\textwidth}{
+            $\hspace{9.75 mm}\Re(\alpha^{2}) = 0 = a^{2} - b^{2} \implies a^{2} = b^{2} \implies a = \pm b$
+        }
+    }
+    
+\end{center}
+
+\begin{align*}
+    &\implies \frac{1}{2} = (a)^{2}\\
+    &\implies a = \pm {\frac{1}{\sqrt{2}}} = \pm \frac{\sqrt{2}}{2}\\
+    &\implies \sqrt{i} = \pm \alpha = \pm\Big(\frac{\sqrt{2} + \sqrt{2}i}{2}\Big)\\
+\end{align*}
+$\implies \sqrt{i} = \dfrac{-\sqrt{2} - \sqrt{2}i}{2}, \ \dfrac{\sqrt{2} + \sqrt{2}i}{2}$ .\\
+
+\color{black}
+
+\pagebreak
+
+\noindent \textbf{9} \hspace{3 mm} Find $x \in \mathbb{R}^{4}$ such that $(4, -3, 1, 7) + 2x = (5, 9, -6, 8)$. \color{red}\\
+
+\indent Let $x \in \mathbb{R}^{4}$, where $x \stackrel{\text{def}}{=} (x_{1}, x_{2}, x_{3}, x_{4})$, with $x_{1}, x_{2}, x_{3}, x_{4} \in \mathbb{R}$.
+
+\begin{align*}
+    (4, -3, 1, 7) + 2x &= (5, 9, -6, 8)\\
+    (4, -3, 1, 7) + 2(x_{1}, x_{2}, x_{3}, x_{4}) &= (5, 9, -6, 8)\\
+    2(x_{1}, x_{2}, x_{3}, x_{4}) &= (5, 9, -6, 8) - (4, -3, 1, 7)\\
+    2(x_{1}, x_{2}, x_{3}, x_{4}) &= (1, 12, -5, 1)\\
+    (x_{1}, x_{2}, x_{3}, x_{4}) &= \frac{1}{2}(1, 12, -5, 1)\\
+    (x_{1}, x_{2}, x_{3}, x_{4}) &= \Big(\frac{1}{2}, 6, -\frac{5}{2}, \frac{1}{2}\Big)\\
+\end{align*}
+$\implies x = \Big(\dfrac{1}{2}, 6, -\dfrac{5}{2}, \dfrac{1}{2}\Big)$ .\\\\
+
+\color{black}
+
+\noindent \textbf{10} \hspace{3 mm} Explain why there does not exist $\lambda \in \mathbb{C}$ such that $\lambda(2 - 3i, 5 + 4i, -6 + 7i) = (12 - 5i, 7 + 22i, -32 - 9i)$.\color{red}\\
+
+\noindent We assume, for the sake of contradiction, that there exists $\lambda \in \mathbb{C}$ such that the equation above holds. This,
+    \begin{align*}
+        \lambda(2 - 3i) &= 12 - 5i &&\text{(by the definition of scalar multiplication)} \\
+        \lambda &= \frac{12 - 5i}{2 - 3i} &&\text{(solving for $\lambda$)} \\
+        &= \frac{(12 - 5i)(2 + 3i)}{(2 - 3i)(2 + 3i)} &&\text{(by the definition of division over $\mathbb{C}$)} \\
+        &= \frac{24 + 36i - 10i - 15}{4 + 9} &&\text{(holds for distributivity over $\mathbb{C}$)} \\
+        &= \frac{9 + 26i}{13} &&\text{(holds for commutativity over $\mathbb{C}$)} \\
+        &= \frac{9}{13} + \frac{26}{13}i. &&\text{(separating $\Re({z})$ and $\Im({z})$ parts)}
+    \end{align*}
+
+    Substituting $\lambda = \frac{9}{13} + \frac{26}{13}i$ into the second equation yields
+    \begin{align*}
+        \lambda(5 + 4i) &= 7 + 22i &&\text{(by the definition of scalar multiplication)} \\
+        \Big(\frac{9}{13} + \frac{26}{13}i\Big)(5 + 4i) &= 7 + 22i &&\text{(substitute $\lambda$)} \\
+        &= \frac{1}{13}\Big(45 + 36i + 130i - 104\Big) &&\text{(by the definition of multiplication over $\mathbb{C}$)} \\
+        &= \frac{1}{13}\Big(-59 + 166i\Big) &&\text{(by commutativity over $\mathbb{C}$)} \\
+        &= -\frac{59}{13} + \frac{166}{13}i. &&\text{(separating $\Re({z})$ and $\Im({z})$ parts)}
+    \end{align*}
+
+    Comparing with $7 + 22i$, we observe a contradiction, as
+    \[
+    -\frac{59}{13} \neq 7 \quad \text{and} \quad \frac{166}{13} \neq 22.
+    \]
+
+    Therefore, no such $\lambda \in \mathbb{C}$ can exist.
+
+\color{black}
+
+\end{document}
